@@ -14,15 +14,20 @@ class ProductCrudCommand extends Command
     {
         $name = $this->argument('name');
 
-        // 1. Model yaratish
-        $this->call('make:model', ['name' => $name, '-mcr' => true]);
+        // 1. Model yaratish (migration + resource controller bilan)
+        $this->call('make:model', [
+            'name' => $name,
+            '-m' => true, // migration
+            '-c' => true, // controller
+            '-r' => true, // resource controller
+        ]);
 
         // 2. Blade fayllarni qo‘shish
         $viewPath = resource_path("views/{$name}");
         if (!File::exists($viewPath)) {
             File::makeDirectory($viewPath, 0755, true);
         }
-        File::put($viewPath."/index.blade.php", "<h1>{$name} CRUD</h1>");
+        File::put($viewPath . "/index.blade.php", "<h1>{$name} CRUD</h1>");
 
         $this->info("CRUD for {$name} generated successfully!");
     }
