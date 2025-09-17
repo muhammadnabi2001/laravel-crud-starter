@@ -3,7 +3,16 @@
     "description": "Custom CRUD generator for Laravel",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Muhammadnabi Xoliqulov",
+            "email": "xoliqulovmuhammadnabi842@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "illuminate/support": "^11.0|^12.0"
+    },
     "autoload": {
         "psr-4": {
             "CrudStarter\\": "src/"
@@ -16,10 +25,12 @@
             ]
         }
     },
-    "require": {
-        "php": ">=8.1",
-        "illuminate/support": "^11.0|^12.0"
-    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/muhammadnabi2001/laravel-crud-starter.git"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }
